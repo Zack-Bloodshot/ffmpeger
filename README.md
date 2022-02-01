@@ -8,11 +8,11 @@ The bot justs takes a video file and then tries to encode it according to [this 
 <ul>
 <li>
 <b>What the bot does:
-<img src='https://telegra.ph/file/3bcb1b37493c0375ee840.jpg' height=50%>
+<img src='https://telegra.ph/file/3bcb1b37493c0375ee840.jpg'>
 </li>
 <li>
 After processing through @Stickers bot:
-<img src='https://telegra.ph/file/221a2718e773fe3f72eda.jpg' height=50% widht=50%>
+<img src='https://telegra.ph/file/221a2718e773fe3f72eda.jpg'>
 </b>
 </li>
 </ul>
