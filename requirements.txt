@@ -1,0 +1,4 @@
+telethon
+ffmpeg-python
+python-dotenv
+https://codeload.github.com/MiyukiKun/FastTelethonhelper/zip/refs/heads/main

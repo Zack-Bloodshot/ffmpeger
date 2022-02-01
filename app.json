@@ -1,0 +1,24 @@
+{
+  "name": "Tg_Video_sticker_converter",
+  "description": "normal bot",
+  "repository": "https://github.com/Zack-Bloodshot/Tg_Video_sticker_converter",
+  "buildpacks": [
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+    ],
+  "env":{
+    "API_ID":{
+      "description": "Api Id ~",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Api hash ~",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Bot token from @BotFather",
+      "required": true
+    }
+  }
+}
