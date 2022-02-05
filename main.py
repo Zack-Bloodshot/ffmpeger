@@ -7,6 +7,7 @@ import asyncio
 import ffmpeg
 from FastTelethonhelper import fast_download, fast_upload
 import logging
+import subprocess
 
 API_ID= int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
