@@ -8,7 +8,7 @@ Ffmpeg command eval bot.
 The bot takes ffmpeg commands and tries to eval them
 </li>
 <li>
-The syntax orwhat commands to send the bot at the moment is <b>ffmpeg (cmds) (output extension)</b>, and reply to the file to use it as the input.'
+The syntax or what commands to send the bot at the moment is <b>ffmpeg (cmds) (output extension)</b>, and reply to the file to use it as the input.'
 </li>
 </ul>
 
@@ -46,6 +46,6 @@ After processing through @Stickers bot:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Zack-Bloodshot/Tg_Video_sticker_converter)
 
----
+
 
 **MADE WITH LOVE, FEEL FREE TO PULL NEW FEATURES!!**
