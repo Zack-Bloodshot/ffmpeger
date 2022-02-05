@@ -2,13 +2,13 @@
 
 Ffmpeg command eval bot.
 
-### Main-Usage:
+## Main-Usage:
 <ul>
 <li>
 The bot takes ffmpeg commands and tries to eval them
 </li>
 <li>
-The syntax orwhat commands to send the bot at the moment is <code>ffmpeg cmds output extension</code>, and reply to the file to use it as the input.'
+The syntax orwhat commands to send the bot at the moment is <b>ffmpeg (cmds) (output extension)</b>, and reply to the file to use it as the input.'
 </li>
 </ul>
 
@@ -25,7 +25,9 @@ ffmpeg -ss 60 -t 60 -vcodec libx264 -crf 28 mkv
 ```
 Here ffmpeg is the command handler, **-ss 60 -t 60 -vcodec libx264 -crf 28** is the command, and **mkv** is the output extension.
 
-### Side-Usage:
+---
+
+## Side-Usage:
 The bot also takes a video file and then tries to encode it according to [this guide](https://core.telegram.org/stickers#video-sticker-requirements)
 
 <ul>
@@ -43,3 +45,7 @@ After processing through @Stickers bot:
 ### Deploy to heroku:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Zack-Bloodshot/Tg_Video_sticker_converter)
+
+---
+
+**MADE WITH LOVE, FEEL FREE TO PULL NEW FEATURES!!**
