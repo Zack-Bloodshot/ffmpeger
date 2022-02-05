@@ -46,6 +46,6 @@ After processing through @Stickers bot:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Zack-Bloodshot/Tg_Video_sticker_converter)
 
-
+---
 
 **MADE WITH LOVE, FEEL FREE TO PULL NEW FEATURES!!**
