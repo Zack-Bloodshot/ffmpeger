@@ -1,9 +1,31 @@
-# Tg_Video_sticker_converter
+# Ffmpeg-bot
 
-Videos to Telegram Video sticker Supportable Webm converter
+Ffmpeg command eval bot.
 
-### Usage:
-The bot justs takes a video file and then tries to encode it according to [this guide](https://core.telegram.org/stickers#video-sticker-requirements)
+### Main-Usage:
+<ul>
+<li>
+The bot takes ffmpeg commands and tries to eval them
+</li>
+<li>
+The syntax orwhat commands to send the bot at the moment is <code>ffmpeg cmds output extension</code>, and reply to the file to use it as the input.'
+</li>
+</ul>
+### Examples:
+Examples are taken in mind that the output file extensions will be **mkv**.
+#### To trim a video (Replying command to the file to be used as input):
+```
+ffmpeg -t 3 mk4
+```
+Here **ffmpeg** is the command handler, **-t 3** is the command and, **mkv** is the output extension.
+#### Skip to a part of video + trim it + compress it using crf (Replying command to the file to be used as input):
+```
+ffmpeg -ss 60 -t 60 -vcodec libx264 -crf 28 mkv
+```
+Here ffmpeg is the command handler, **-ss 60 -t 60 -vcodec libx264 -crf 28** is the command, and **mkv** is the output extension.
+
+### Side-Usage:
+The bot also takes a video file and then tries to encode it according to [this guide](https://core.telegram.org/stickers#video-sticker-requirements)
 
 <ul>
 <li>

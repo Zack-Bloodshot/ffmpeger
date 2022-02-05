@@ -18,6 +18,32 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger("__name__")
 
+def subp(cmd):
+  result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+  f = open('log.txt', 'w')
+  f.write(str(result))
+  f.close()
+  return result
+
+def generate_thumbnail(in_filename):
+    probe = ffmpeg.probe(in_filename)
+    out_filename = f'{in_filename[:-3]}.jpg'
+    cmd = ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", in_filename]
+    time = float(subp(cmd).stdout.decode())
+    time = time // 2
+    width = probe['streams'][0]['width']
+    try:
+        (
+          ffmpeg
+          .input(in_filename, ss=time)
+          .filter('scale', width, -1)
+          .output(out_filename, vframes=1)
+          .overwrite_output()
+          .run(capture_stdout=True, capture_stderr=True)
+        )
+    except ffmpeg.Error as e:
+        print(e.stderr.decode())
+    return out_filename
 
 def vidsticker(in_filename):
   out_filename =f'{in_filename[:-3]}_processed.webm'
@@ -49,6 +75,42 @@ async def stickervid(event):
   os.remove(dl)
   os.remove(hek)  
 
+@bot.on(events.NewMessage(pattern=r'ffmpeg'))
+async def ffmpegr(event):
+  try:
+    stcmd = event.text.split(' ')
+  except IndexError:
+    return await event.reply('Use as ffmpeg <cmd>')
+  video = await event.get_reply_message()
+  m = await event.reply('Downloading...')
+  dl = await fast_download(bot, video)
+  out = f'{dl[:-4]}_ffmpeg.{stcmd[-1]}'
+  await m.edit('Encoding....')
+  #cmd = f'ffmpeg -i {dl} {stcmd} {out}'
+  stcmd.pop(0)
+  stcmd.pop(-1)
+  cmd = ['ffmpeg', '-i', dl]
+  cmd.extend(stcmd)
+  cmd.append('-y')
+  cmd.append(f'{out}')
+  await event.reply(" ".join(cmd))
+  h = subp(cmd)
+  #await event.reply(str(h))
+  await m.edit('Uploading.....')
+  await bot.send_message(event.chat_id, file=out, thumb=generate_thumbnail(dl))
+  await m.delete()
+
+@bot.on(events.NewMessage(pattern=r'/log'))
+async def log_send(event):
+  try:
+    await event.reply(file='log.txt')
+  except Exception as e:
+    pass
+
+@bot.on(events.NewMessage(pattern=r'/start'))
+async def start(event):
+  if event.is_private:
+    await event.reply('Yo!\nThings i can do:\n1) /vs : Convert videos to webm (telegram video sticker format)\n2) ffmpeg: reply to a file and then write the ffmpeg command as **ffmpeg <cmds> <output extension>**\n3) /log : To get the last ffmpeg log')
 
 print('Starting...')
 bot.start() 
