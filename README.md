@@ -11,6 +11,7 @@ The bot takes ffmpeg commands and tries to eval them
 The syntax orwhat commands to send the bot at the moment is <code>ffmpeg cmds output extension</code>, and reply to the file to use it as the input.'
 </li>
 </ul>
+
 ### Examples:
 Examples are taken in mind that the output file extensions will be **mkv**.
 #### To trim a video (Replying command to the file to be used as input):
